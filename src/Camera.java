@@ -34,7 +34,7 @@ public class Camera {
         ax=km*(x_joueur-100-x)-fm*vx;
         vx+=ax;
         x+=vx;
-
+// ok
         ay=km*(y_joueur-250-y)-fm*vy;
 
         vy+=ay;
