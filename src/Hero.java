@@ -67,7 +67,7 @@ public class Hero extends AnimatedThing{
         super.update(t);
         UpdateAttitude();
 
-        a_y = 0.2 - f_y/15;
+        a_y = 0.25 - f_y/15;
         v_y += a_y;
         y += v_y;
 

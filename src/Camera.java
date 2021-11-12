@@ -5,7 +5,7 @@ public class Camera {
     private double ay;
     private double vx;
     private double vy;
-    private final double km = 1;
+    private final double km = 0.4;
     private final double fm = 1.2;
 
     public Camera(int x, int y){
@@ -34,7 +34,7 @@ public class Camera {
         ax=km*(x_joueur-100-x)-fm*vx;
         vx+=ax;
         x+=vx;
-// ok
+
         ay=km*(y_joueur-250-y)-fm*vy;
 
         vy+=ay;
