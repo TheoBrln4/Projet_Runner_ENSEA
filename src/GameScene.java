@@ -51,13 +51,14 @@ public class GameScene extends Scene {
 
         this.setOnMouseClicked( (event)-> joueur.jump());
         this.setOnKeyPressed(keyEvent -> {
-            if(keyEvent.equals("SPACE")){
+            String key = keyEvent.getCode().toString();
+            if(key.equals("SPACE")){
                 joueur.jump();
             }
-            if(keyEvent.equals("D")){
+            if(key.equals("D")){
                 joueur.forceAug(100);
             }
-            if(keyEvent.equals("Q")){
+            if(key.equals("Q")){
                 joueur.forceAug(-100);
             }
         });

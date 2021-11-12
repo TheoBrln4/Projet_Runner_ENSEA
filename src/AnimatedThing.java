@@ -57,10 +57,10 @@ abstract public class AnimatedThing {
             this.im.setViewport(new Rectangle2D(index * (sizex + offset), 0, sizey * 0.75 + offset, 100));
         }
         else if(this.at == attitude.Jumping_Up){
-            this.im.setViewport(new Rectangle2D(offset, 100, sizex+offset, sizey));
+            this.im.setViewport(new Rectangle2D(offset, 160, sizex+offset, sizey));
         }
         else if(this.at == attitude.Jumping_Down){
-            this.im.setViewport(new Rectangle2D(95, 100, sizex + offset, sizey));
+            this.im.setViewport(new Rectangle2D(95, 160, sizex + offset, sizey));
         }
     }
 

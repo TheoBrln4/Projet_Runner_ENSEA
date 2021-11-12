@@ -41,7 +41,7 @@ public class Hero extends AnimatedThing{
 
     public void jump(){
         if(y >= 150+sizey){
-            f_y += 100;
+            f_y += 105;
         }
     }
 
@@ -67,7 +67,7 @@ public class Hero extends AnimatedThing{
         super.update(t);
         UpdateAttitude();
 
-        a_y = (15) - f_y/0.2;
+        a_y = 0.2 - f_y/15;
         v_y += a_y;
         y += v_y;
 
