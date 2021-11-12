@@ -16,7 +16,7 @@ abstract public class AnimatedThing {
     protected double x;
     protected double y;
     private ImageView im;
-    enum attitude{Jumping_Up, Jumping_Down, Running};
+    enum attitude{Jumping_Up, Jumping_Down, Running}
     attitude at;
 
     int index;
@@ -68,5 +68,5 @@ abstract public class AnimatedThing {
         return im;
     }
 
-    public abstract void UpdateAttitude();
+    public abstract void UpdateAttitude(); //ok
 }
