@@ -68,5 +68,5 @@ abstract public class AnimatedThing {
         return im;
     }
 
-    public abstract void UpdateAttitude(); //ok
+    public abstract void UpdateAttitude();
 }

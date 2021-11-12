@@ -9,6 +9,8 @@ import javafx.scene.Group;
 
 import javax.swing.*;
 
+import java.util.ArrayList;
+
 import static javafx.application.Application.launch;
 
 public class GameScene extends Scene {
@@ -19,6 +21,7 @@ public class GameScene extends Scene {
     int numberOfLives;
     Hero joueur;
     int rep = 1;
+    ArrayList<Foe> Ennemis;
 
     private final int desertSizeX=800;
     private final int desertSizeY=400;
