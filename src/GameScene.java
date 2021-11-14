@@ -65,6 +65,11 @@ public class GameScene extends Scene {
                 joueur.forceAug(-100);
             }
         });
+
+        Ennemis = new ArrayList<>();
+        Foe ennemi = new Foe(250,257);
+        Ennemis.add(ennemi);
+        parent.getChildren().add(ennemi.getim());
     }
 
     public void update(double t){
