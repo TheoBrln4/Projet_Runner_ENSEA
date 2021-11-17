@@ -46,6 +46,7 @@ public class Hello_World extends Application {
             joueur.update(t);
             cam.update(t, joueur);
             theScene.update(t);
+
             }
             };timer.start();
 

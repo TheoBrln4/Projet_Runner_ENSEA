@@ -18,6 +18,7 @@ public class Hero extends AnimatedThing{
     private double v_x,v_y;
     private double a_x,a_y;
     private double f_x,f_y;
+    public double life=3;
 
     public Hero(double x, double y) {
         super(x, y, 0.1, 5, 10, 75, 100, "heros.png");
@@ -26,6 +27,17 @@ public class Hero extends AnimatedThing{
     public void setForce(double fx, double fy){
         f_x = fx;
         f_y = fy;
+    }
+
+
+    public void lostLife(){
+        if(life != 0) {
+            life -= 1;
+            System.out.println("Vous avez été touché, il vous reste :" +life);
+        }
+        else{
+            System.out.println("Vous avez perdu");
+        }
     }
 
     public void speedAug(double aug){
@@ -67,7 +79,7 @@ public class Hero extends AnimatedThing{
         super.update(t);
         UpdateAttitude();
 
-        a_y = 0.25 - f_y/15;
+        a_y = 0.22 - f_y/15;
         v_y += a_y;
         y += v_y;
 

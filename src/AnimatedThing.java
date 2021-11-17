@@ -19,6 +19,8 @@ abstract public class AnimatedThing {
     enum attitude{Jumping_Up, Jumping_Down, Running}
     attitude at;
 
+    protected Rectangle2D recta;
+
     int index;
     double duration;
     int indexMax;
@@ -49,6 +51,10 @@ abstract public class AnimatedThing {
         return y;
     }
 
+    public Rectangle2D getRecta(){
+        return recta;
+    }
+
     public void update(double t){
         this.indexMax = 5;
         this.index = (int) ((t%(duration*indexMax))/this.duration);
@@ -69,4 +75,8 @@ abstract public class AnimatedThing {
     }
 
     public abstract void UpdateAttitude();
+
+    public boolean touch(Rectangle2D recti){
+        return recta.intersects(recti);
+    }
 }

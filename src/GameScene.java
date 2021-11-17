@@ -22,6 +22,7 @@ public class GameScene extends Scene {
     Hero joueur;
     int rep = 1;
     ArrayList<Foe> Ennemis;
+    int nbmax = 100;
 
     private final int desertSizeX=800;
     private final int desertSizeY=400;
@@ -67,9 +68,15 @@ public class GameScene extends Scene {
         });
 
         Ennemis = new ArrayList<>();
-        Foe ennemi = new Foe(250,257);
-        Ennemis.add(ennemi);
-        parent.getChildren().add(ennemi.getim());
+
+        for(int i = 0; i<nbmax; i++) {
+            double xrand = Math.random()*1500-800;
+            if(1000*i+xrand>500) {
+                Foe ennemi = new Foe(1000*i+xrand, 257);
+                Ennemis.add(ennemi);
+                parent.getChildren().add(ennemi.getim());
+            }
+        }
     }
 
     public void update(double t){
@@ -89,5 +96,19 @@ public class GameScene extends Scene {
         }
         joueur.getim().setX(joueur.getx()-camera.getx());
         joueur.getim().setY(joueur.gety()-camera.gety());
+
+        for(Foe ennemi: Ennemis){
+            ennemi.update(t);
+            ennemi.getim().setX(ennemi.getx()-camera.getx());
+            ennemi.getim().setY(ennemi.gety()-camera.gety());
+            //if(joueur.touch(ennemi.getRecta())){
+              //  joueur.lostLife();
+            //    System.out.println(joueur.life);
+            //}
+        }
+
+        if (joueur.life==0){
+            getWindow().hide();
+        }
     }
 }
