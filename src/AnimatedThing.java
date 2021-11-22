@@ -19,7 +19,7 @@ abstract public class AnimatedThing {
     enum attitude{Jumping_Up, Jumping_Down, Running}
     attitude at;
 
-    protected Rectangle2D recta;
+    protected Rectangle2D hitbox;
 
     int index;
     double duration;
@@ -41,6 +41,7 @@ abstract public class AnimatedThing {
         this.im.setViewport(new Rectangle2D(0, 0, sizex, sizey));
         this.im.setX(x);
         this.im.setY(y);
+        this.hitbox = new Rectangle2D(x,y,sizex,sizey);
     }
 
     public double getx(){
@@ -52,12 +53,13 @@ abstract public class AnimatedThing {
     }
 
     public Rectangle2D getRecta(){
-        return recta;
+        return hitbox;
     }
 
     public void update(double t){
         this.indexMax = 5;
         this.index = (int) ((t%(duration*indexMax))/this.duration);
+        this.hitbox= new Rectangle2D(this.getx(), this.gety(), this.sizex, this.sizey);
 
         if(this.at == attitude.Running) {
             this.im.setViewport(new Rectangle2D(index * (sizex + offset), 0, sizey * 0.75 + offset, 100));
@@ -77,6 +79,6 @@ abstract public class AnimatedThing {
     public abstract void UpdateAttitude();
 
     public boolean touch(Rectangle2D recti){
-        return recta.intersects(recti);
+        return hitbox.intersects(recti);
     }
 }

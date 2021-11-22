@@ -101,10 +101,9 @@ public class GameScene extends Scene {
             ennemi.update(t);
             ennemi.getim().setX(ennemi.getx()-camera.getx());
             ennemi.getim().setY(ennemi.gety()-camera.gety());
-            //if(joueur.touch(ennemi.getRecta())){
-              //  joueur.lostLife();
-            //    System.out.println(joueur.life);
-            //}
+            if(joueur.touch(ennemi.hitbox)){
+                joueur.lostLife();
+            }
         }
 
         if (joueur.life==0){

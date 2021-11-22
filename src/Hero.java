@@ -20,6 +20,9 @@ public class Hero extends AnimatedThing{
     private double f_x,f_y;
     public double life=3;
 
+    public double invincibility = 2.5;
+    public boolean isInvicible;
+
     public Hero(double x, double y) {
         super(x, y, 0.1, 5, 10, 75, 100, "heros.png");
     }
@@ -33,7 +36,7 @@ public class Hero extends AnimatedThing{
     public void lostLife(){
         if(life != 0) {
             life -= 1;
-            System.out.println("Vous avez été touché, il vous reste :" +life);
+            System.out.println("Vous avez été touché, il vous reste : " +life);
         }
         else{
             System.out.println("Vous avez perdu");
