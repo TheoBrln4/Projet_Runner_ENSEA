@@ -15,6 +15,16 @@ public class Foe extends AnimatedThing {
 
     }
 
+    public void lostLife(Hero joueur){
+        if (at!=attitude.Dead ) {
+            at = attitude.Dead;
+            joueur.lostLife();
+            if (joueur.life==0 ){
+                System.out.println("Vous avez perdu");
+            }
+        }
+    }
+
     @Override
     public void update(double t) {
         super.update(t);

@@ -16,7 +16,7 @@ abstract public class AnimatedThing {
     protected double x;
     protected double y;
     private ImageView im;
-    enum attitude{Jumping_Up, Jumping_Down, Running}
+    enum attitude{Jumping_Up, Jumping_Down, Running, Dead}
     attitude at;
 
     protected Rectangle2D hitbox;
@@ -27,6 +27,8 @@ abstract public class AnimatedThing {
     int offset;
     int sizex;
     int sizey;
+
+    public boolean isInvicible=false;
 
     public AnimatedThing(double x, double y, double duration, int indexMax, int offset, int sizex, int sizey, String filename){
         this.x = x;
@@ -69,6 +71,10 @@ abstract public class AnimatedThing {
         }
         else if(this.at == attitude.Jumping_Down){
             this.im.setViewport(new Rectangle2D(95, 160, sizex + offset, sizey));
+        }
+
+        if (isInvicible && index%2==0){
+            this.im.setViewport(new Rectangle2D(300,100,sizex+offset,sizey));
         }
     }
 

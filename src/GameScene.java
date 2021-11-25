@@ -97,12 +97,13 @@ public class GameScene extends Scene {
         joueur.getim().setX(joueur.getx()-camera.getx());
         joueur.getim().setY(joueur.gety()-camera.gety());
 
+
         for(Foe ennemi: Ennemis){
             ennemi.update(t);
             ennemi.getim().setX(ennemi.getx()-camera.getx());
             ennemi.getim().setY(ennemi.gety()-camera.gety());
             if(joueur.touch(ennemi.hitbox)){
-                joueur.lostLife();
+                ennemi.lostLife(joueur);
             }
         }
 

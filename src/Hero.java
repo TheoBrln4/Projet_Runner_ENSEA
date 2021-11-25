@@ -21,7 +21,8 @@ public class Hero extends AnimatedThing{
     public double life=3;
 
     public double invincibility = 2.5;
-    public boolean isInvicible;
+    protected double tav=0;
+    public boolean test=false;
 
     public Hero(double x, double y) {
         super(x, y, 0.1, 5, 10, 75, 100, "heros.png");
@@ -32,14 +33,12 @@ public class Hero extends AnimatedThing{
         f_y = fy;
     }
 
-
     public void lostLife(){
-        if(life != 0) {
-            life -= 1;
-            System.out.println("Vous avez été touché, il vous reste : " +life);
-        }
-        else{
-            System.out.println("Vous avez perdu");
+        if (!isInvicible) {
+            life--;
+            isInvicible = true;
+            test=true;
+            System.out.println("Vous avez été touché, vie(s) restante(s) : " +life);
         }
     }
 
@@ -98,6 +97,18 @@ public class Hero extends AnimatedThing{
 
 
         setForce(0,0);
+        if (v_x<0){
+            v_x=1;
+        }
+        if (isInvicible){
+            if (test){
+                tav=t;
+                test=false;
+            }else if (t-tav>invincibility){
+                isInvicible=false;
+                test=true;
+            }
+        }
 
     }
 }
